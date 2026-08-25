@@ -604,3 +604,129 @@ html, body {
     .screen { position: relative; display: block !important; page-break-after: always; }
     #question-screen { height: auto; min-height: 100vh; }
 }
+
+/* ===== АДАПТИВНЫЙ ДИЗАЙН ===== */
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+    .ngk-logo { width: 140px; height: 140px; }
+    .ngk-name { font-size: 22px; }
+    .ngk-motto { font-size: 20px; }
+    
+    .q-col-center { flex: 0 0 400px; }
+    .q-header { font-size: 18px; padding: 12px 20px; }
+    .q-text { font-size: 18px; }
+    .q-option-text { font-size: 16px; }
+    .q-option-letter { width: 36px; height: 36px; font-size: 18px; }
+    
+    .start-content h1 { font-size: 42px; }
+    .start-content h2 { font-size: 36px; }
+    .start-content .subtitle { font-size: 20px; }
+    .start-content .quiz-title { font-size: 28px; }
+}
+
+/* Телефоны (< 768px) */
+@media (max-width: 768px) {
+    /* Логотип и НГК */
+    .ngk-header {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+    .ngk-logo { width: 100px; height: 100px; }
+    .ngk-info { text-align: center; height: auto; }
+    .ngk-name { font-size: 18px; margin-bottom: 8px; }
+    .ngk-site { font-size: 14px; margin-bottom: 10px; }
+    .ngk-motto { font-size: 14px; margin-top: 8px; }
+    
+    /* Заголовок */
+    .start-content h1 { font-size: 32px; letter-spacing: 3px; }
+    .start-content h2 { font-size: 24px; letter-spacing: 2px; }
+    .start-content .subtitle { font-size: 16px; }
+    .start-content .divider { width: 200px; margin: 25px auto; }
+    .start-content .quiz-title { font-size: 22px; margin-bottom: 30px; }
+    
+    /* Вопрос */
+    .q-header { font-size: 14px; padding: 10px 15px; }
+    .q-body {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        overflow-y: auto;
+    }
+    .q-col-center {
+        flex: 0 0 auto;
+        order: -1;
+    }
+    .q-image-frame { max-width: 100%; }
+    
+    .q-text { font-size: 16px; min-height: auto; margin-bottom: 10px; }
+    .q-option { padding: 12px; gap: 10px; }
+    .q-option-letter { width: 32px; height: 32px; font-size: 16px; }
+    .q-option-text { font-size: 14px; }
+    
+    .q-hint-text { font-size: 14px; }
+    
+    /* Таймер */
+    :root { --timer-size: 100px; }
+    .q-timer-text { font-size: 32px; }
+    .q-timer-info { font-size: 12px; gap: 15px; }
+    
+    /* Навигация */
+    .nav-controls {
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
+    }
+    .nav-btn { width: 50px; height: 50px; font-size: 20px; }
+    .nav-hint { display: none; }
+    
+    /* Ответы */
+    .answers-table th, .answers-table td { font-size: 9px; padding: 4px 6px; }
+    
+    /* Финал */
+    .final-content h1 { font-size: 36px; }
+    .place { flex-direction: column; gap: 15px; padding: 20px; }
+    .place-label { font-size: 20px; min-width: auto; text-align: center; }
+    .place-team { font-size: 18px; }
+    .final-congrats { font-size: 24px; }
+    
+    /* Перерыв */
+    .break-content h1 { font-size: 36px; }
+    .break-content h2 { font-size: 24px; }
+    .break-timer { font-size: 48px; }
+}
+
+/* Маленькие телефоны (< 480px) */
+@media (max-width: 480px) {
+    .ngk-logo { width: 80px; height: 80px; }
+    .ngk-name { font-size: 15px; }
+    .ngk-motto { font-size: 12px; }
+    
+    .start-content h1 { font-size: 26px; }
+    .start-content h2 { font-size: 20px; }
+    .start-content .subtitle { font-size: 14px; }
+    .start-content .quiz-title { font-size: 18px; }
+    
+    .q-header { font-size: 12px; padding: 8px 10px; }
+    .q-text { font-size: 14px; }
+    .q-option { padding: 10px 8px; }
+    .q-option-letter { width: 28px; height: 28px; font-size: 14px; }
+    .q-option-text { font-size: 12px; }
+    
+    :root { --timer-size: 80px; }
+    .q-timer-text { font-size: 26px; }
+    
+    .nav-btn { width: 44px; height: 44px; font-size: 18px; }
+}
+
+/* Отключение hover на тач-устройствах */
+@media (hover: none) {
+    .q-option:hover { transform: none; }
+    .nav-btn:hover { transform: none; }
+    .nav-controls { opacity: 0.7; }
+}
