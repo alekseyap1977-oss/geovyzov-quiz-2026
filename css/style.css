@@ -1,0 +1,606 @@
+/* ===== ГЕОВЫЗОВ 2026 — СТИЛИ ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* ===== ПЕРЕМЕННЫЕ ===== */
+:root {
+    --dark: #1a1a2e;
+    --gold: #ffd700;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --gray: #888888;
+    --dark-gray: #333333;
+    --hint-gray: #555555;
+    --green: #2ecc71;
+    --red: #e74c3c;
+    --blue: #3498db;
+    --ru-color: #27ae60;
+    --en-color: #27ae60;
+    --timer-size: 140px;
+    --transition: 0.3s ease;
+    --font: 'Montserrat', 'Segoe UI', Calibri, Arial, sans-serif;
+}
+
+/* ===== СБРОС ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    width: 100%; height: 100%;
+    font-family: var(--font);
+    background: var(--dark);
+    overflow: hidden;
+    color: var(--dark-gray);
+}
+
+/* ===== ЭКРАНЫ ===== */
+.screen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    flex-direction: column;
+}
+.screen.active { display: flex; }
+
+/* ===== НАЧАЛЬНЫЙ ЭКРАН ===== */
+#start-screen {
+    background: url('../img/ngk/ngk_1.jpg') center/cover no-repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+#start-screen::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 25, 47, 0.65);
+    z-index: 1;
+}
+#start-screen > * { position: relative; z-index: 2; }
+
+/* Логотип и информация НГК (левый верх) */
+.ngk-header {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    z-index: 10;
+}
+.ngk-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.ngk-info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 180px;
+}
+.ngk-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    margin-bottom: 15px;
+}
+.ngk-site {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.ngk-motto {
+    font-size: 26px;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    line-height: 1.3;
+}
+
+/* Основной контент */
+.start-content { animation: fadeIn 1s ease; }
+.start-content h1 { font-size: 48px; color: var(--gold); margin-bottom: 5px; letter-spacing: 6px; font-weight: 800; }
+.start-content h2 { font-size: 48px; color: var(--white); margin-bottom: 15px; letter-spacing: 3px; font-weight: 700; }
+.start-content .subtitle { font-size: 22px; color: var(--gray); line-height: 1.5; margin-bottom: 5px; }
+.start-content .divider { width: 280px; height: 3px; background: var(--gold); margin: 30px auto; }
+.start-content .quiz-title { font-size: 32px; color: var(--white); margin-bottom: 50px; font-weight: 700; }
+
+/* Эффект свечения для заголовка */
+.glow-text {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5),
+                 0 0 20px rgba(255, 215, 0, 0.3),
+                 0 0 30px rgba(255, 215, 0, 0.2);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3); }
+    to { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3); }
+}
+
+/* Градиентный текст для английского названия */
+.subtitle-en {
+    background: linear-gradient(90deg, var(--gold), #fff, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.start-instructions {
+    margin-top: 50px;
+    font-size: 24px;
+    color: var(--gray);
+    animation: pulse 2s infinite;
+}
+.start-instructions kbd {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-size: 21px;
+    font-weight: 600;
+}
+
+/* ===== ЭКРАН ПРАВИЛ ===== */
+#rules-screen {
+    background: var(--white);
+    justify-content: center;
+    align-items: center;
+}
+.rules-container { width: 90%; max-width: 1400px; }
+.rules-header { text-align: center; margin-bottom: 45px; }
+.rules-header h1 { font-size: 54px; color: var(--dark); font-weight: 800; }
+.rules-columns { display: flex; gap: 60px; justify-content: center; }
+.rules-col { flex: 1; max-width: 600px; }
+.rules-col h3 { font-size: 27px; margin-bottom: 20px; color: var(--dark); font-weight: 700; }
+.rules-col ul { list-style: none; }
+.rules-col li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 21px;
+    line-height: 1.6;
+}
+.rules-divider { width: 3px; background: var(--light-gray); }
+
+/* ===== ЭКРАН СЕКЦИИ ===== */
+#section-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#section-screen .section-content { animation: zoomIn 0.5s ease; }
+#section-screen h1 { font-size: 72px; color: var(--white); margin-bottom: 20px; font-weight: 800; }
+#section-screen h2 { font-size: 42px; color: var(--gold); margin-bottom: 40px; font-weight: 700; }
+.round-number {
+    width: 160px; height: 160px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0 auto;
+}
+
+/* ===== ЭКРАН ПЕРЕРЫВА ===== */
+#break-screen {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.break-content { animation: fadeIn 1s ease; }
+.break-icon { font-size: 80px; margin-bottom: 20px; }
+.break-content h1 { font-size: 64px; color: var(--white); margin-bottom: 15px; font-weight: 800; letter-spacing: 4px; }
+.break-content h2 { font-size: 36px; color: var(--gold); margin-bottom: 25px; font-weight: 700; }
+.break-sub { font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+.break-timer {
+    margin-top: 40px;
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--white);
+    font-family: monospace;
+    letter-spacing: 8px;
+    animation: pulse 2s infinite;
+}
+
+/* ===== ЭКРАН ВОПРОСА ===== */
+#question-screen { background: var(--white); }
+
+.q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--dark);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.q-body {
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.q-col { display: flex; flex-direction: column; }
+.q-col-left, .q-col-right { flex: 1; }
+.q-col-center {
+    flex: 0 0 500px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.q-lang-badge {
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+.q-lang-badge.ru { background: var(--ru-color); }
+.q-lang-badge.en { background: var(--en-color); }
+
+.q-label {
+    font-size: 16px;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.q-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    min-height: 75px;
+}
+
+/* ===== ПОДСКАЗКА ===== */
+.q-hint {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.8s ease, max-height 0.8s ease, margin 0.8s ease;
+    margin-bottom: 0;
+}
+.q-hint.visible {
+    opacity: 1;
+    max-height: 200px;
+    margin-bottom: 18px;
+}
+.q-hint-label {
+    font-size: 16px;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+.q-hint-text {
+    font-size: 18px;
+    color: var(--hint-gray);
+    font-style: italic;
+    line-height: 1.5;
+    padding: 12px;
+    background: #fffde7;
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+}
+
+/* ===== ВАРИАНТЫ ОТВЕТОВ ===== */
+.q-options { display: flex; flex-direction: column; gap: 12px; }
+.q-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--light-gray);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.q-option:hover {
+    background: #e8e8e8;
+    transform: translateX(5px);
+}
+.q-option-letter {
+    width: 42px; height: 42px;
+    background: var(--dark-gray);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+.q-option-text { font-size: 20px; line-height: 1.4; }
+
+/* ===== КАРТИНКА (УВЕЛИЧЕНА В 4 РАЗА ОТ ОРИГИНАЛА) ===== */
+.q-image-frame {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4/3;
+    background: var(--light-gray);
+    border: 3px solid #e0e0e0;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.q-image {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.q-image svg { width: 100%; height: 100%; }
+.q-image-caption {
+    font-size: 16px;
+    color: var(--gray);
+    text-align: center;
+    max-width: 480px;
+    font-weight: 600;
+}
+
+/* ===== ТАЙМЕР (ЦЕНТР ВНИЗУ ПОД КАРТИНКОЙ) ===== */
+.q-timer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    background: var(--light-gray);
+    border-top: 2px solid #e0e0e0;
+}
+
+.q-timer { position: relative; margin-bottom: 8px; }
+.q-timer-circle {
+    width: var(--timer-size);
+    height: var(--timer-size);
+    position: relative;
+}
+.q-timer-circle svg {
+    width: 100%; height: 100%;
+    transform: rotate(-90deg);
+}
+.timer-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 6;
+}
+.timer-progress {
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s;
+}
+.timer-progress.warning { stroke: var(--gold); }
+.timer-progress.danger { stroke: var(--red); }
+.q-timer-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--dark);
+}
+.q-timer-text.danger { color: var(--red); animation: blink 0.5s infinite; }
+
+.q-timer-info {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+.q-timer-hint {
+    font-size: 18px;
+    color: var(--dark-gray);
+    margin-top: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+.q-timer-hint .q-timer-en {
+    font-size: 18px;
+    color: var(--dark-gray);
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+/* Английские дубли — такого же размера и цвета как русские */
+.q-header-en {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-left: 10px;
+}
+.q-timer-en {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-left: 8px;
+}
+
+/* ===== ВРЕМЯ ВЫШЛО (Overlay) ===== */
+.time-up-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(231, 76, 60, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+.time-up-overlay.active { display: flex; }
+.time-up-text {
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--white);
+    text-align: center;
+    animation: pulse 0.5s ease 3;
+}
+.time-up-sub {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    margin-top: 20px;
+}
+
+/* ===== ЭКРАН ОТВЕТОВ ===== */
+#answers-screen {
+    background: var(--white);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    overflow-y: auto;
+}
+.answers-container { width: 98%; max-width: 1100px; padding: 10px 0; }
+.answers-header { text-align: center; margin-bottom: 10px; }
+.answers-header h1 { font-size: 22px; color: var(--dark); font-weight: 800; }
+.answers-table-wrapper { overflow-x: auto; }
+.answers-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+.answers-table th {
+    background: var(--dark);
+    color: var(--white);
+    padding: 6px 8px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+}
+.answers-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 11px;
+    vertical-align: top;
+}
+.answers-table tr:nth-child(even) { background: var(--light-gray); }
+.answers-table .correct { color: var(--green); font-weight: 700; font-size: 12px; }
+.answers-en {
+    font-size: 10px;
+    color: var(--hint-gray);
+    margin-top: 1px;
+    font-style: italic;
+}
+
+/* ===== ФИНАЛЬНЫЙ ЭКРАН ===== */
+#final-screen {
+    background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.final-content h1 { font-size: 72px; color: var(--gold); margin-bottom: 20px; font-weight: 800; }
+.final-content .divider { width: 300px; height: 4px; background: var(--gold); margin: 30px auto; }
+.final-places { display: flex; flex-direction: column; gap: 25px; margin: 40px 0; }
+.place {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 50px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    border: 3px solid;
+}
+.place.gold { border-color: var(--gold); }
+.place.silver { border-color: #c0c0c0; }
+.place.bronze { border-color: #cd7f32; }
+.place-medal { font-size: 60px; }
+.place-label { font-size: 30px; color: var(--white); font-weight: 700; min-width: 350px; text-align: left; }
+.place-team { font-size: 33px; color: var(--white); font-family: monospace; }
+.final-congrats {
+    font-size: 36px;
+    color: var(--white);
+    margin-top: 40px;
+    animation: pulse 2s infinite;
+    font-weight: 700;
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+.nav-controls {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    gap: 12px;
+    z-index: 1000;
+    opacity: 0.3;
+    transition: opacity var(--transition);
+}
+.nav-controls:hover { opacity: 1; }
+.nav-btn {
+    width: 50px; height: 50px;
+    background: var(--dark);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.nav-btn:hover { background: var(--gold); color: var(--dark); transform: scale(1.1); }
+
+.nav-hint {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    font-size: 16px;
+    color: var(--gray);
+    opacity: 0.3;
+    z-index: 1000;
+    transition: opacity var(--transition);
+}
+.nav-hint:hover { opacity: 1; }
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes slideInLeft { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInRight { from { transform: translateX(50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+
+.q-col-left { animation: slideInLeft 0.5s ease; }
+.q-col-right { animation: slideInRight 0.5s ease; }
+.q-col-center { animation: fadeIn 0.5s ease; }
+
+/* ===== ПЕЧАТЬ ===== */
+@media print {
+    .nav-controls, .nav-hint { display: none !important; }
+    .screen { position: relative; display: block !important; page-break-after: always; }
+    #question-screen { height: auto; min-height: 100vh; }
+}

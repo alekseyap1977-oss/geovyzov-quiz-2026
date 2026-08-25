@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГеоВызов 2026 — Квиз / GeoChallenge 2026 — Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Начальный экран -->
+    <div id="start-screen" class="screen active">
+        <!-- Логотип и название клуба (левый верх) -->
+        <div class="ngk-header">
+            <img src="img/ngk/ngk_2.png" alt="Логотип НГК" class="ngk-logo">
+            <div class="ngk-info">
+                <div class="ngk-name">НАЦИОНАЛЬНЫЙ ГЕОЛОГИЧЕСКИЙ КЛУБ</div>
+                <div class="ngk-motto">пробуди любопытство и открой историю скрывающуюся под ногами</div>
+                <div class="ngk-site">www.natgeo.club</div>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="start-content">
+            <h1 class="glow-text">ГЕОВЫЗОВ 2026</h1>
+            <h2 class="subtitle-en">GEOCHALLENGE 2026</h2>
+            <p class="subtitle">IV Международный геологический чемпионат</p>
+            <p class="subtitle">4th International Geological Championship</p>
+            <div class="divider"></div>
+            <p class="quiz-title">КВИЗ-ИГРА / QUIZ GAME</p>
+            <div class="start-instructions">
+                <p>Нажмите <kbd>Пробел</kbd> или <kbd>→</kbd> для начала</p>
+                <p>Press <kbd>Space</kbd> or <kbd>→</kbd> to start</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран правил -->
+    <div id="rules-screen" class="screen">
+        <div class="rules-container">
+            <div class="rules-header">
+                <h1>ПРАВИЛА / RULES</h1>
+            </div>
+            <div class="rules-columns">
+                <div class="rules-col">
+                    <h3>ПРАВИЛА ИГРЫ</h3>
+                    <ul>
+                        <li>В квизе участвуют команды (до 5 человек)</li>
+                        <li>5 раундов: Нефть и газ (10), Рудная геология (10), Микс (8), Мой мир (10), Вместе (10)</li>
+                        <li>На каждый вопрос отводится 60 секунд</li>
+                        <li>Через 30 секунд открывается подсказка (hint)</li>
+                        <li>Ответы записываются на бланк и сдаются после каждого вопроса</li>
+                        <li>Правильный ответ — 1 балл</li>
+                        <li>Неправильный ответ — 0 баллов</li>
+                        <li>Победитель определяется по сумме баллов за все раунды</li>
+                        <li>При равенстве баллов — дополнительный вопрос (тай-брейк)</li>
+                    </ul>
+                </div>
+                <div class="rules-divider"></div>
+                <div class="rules-col">
+                    <h3>GAME RULES</h3>
+                    <ul>
+                        <li>Teams of up to 5 people</li>
+                        <li>5 rounds: Oil & Gas (10), Hard-rock Geology (10), Mix (8), My World (10), Together (10)</li>
+                        <li>60 seconds per question</li>
+                        <li>Hint becomes available after 30 seconds</li>
+                        <li>Answers are written on answer sheets</li>
+                        <li>Correct answer — 1 point</li>
+                        <li>Wrong answer — 0 points</li>
+                        <li>Winner is determined by total score across all rounds</li>
+                        <li>Tie-breaker question in case of equal scores</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="start-instructions">
+                <p>Нажмите <kbd>→</kbd> для начала / Press <kbd>→</kbd> to start</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран секции (раунд) -->
+    <div id="section-screen" class="screen">
+        <div class="section-content">
+            <h1 id="section-title-ru"></h1>
+            <h2 id="section-title-en"></h2>
+            <div class="round-number" id="round-number"></div>
+        </div>
+    </div>
+
+    <!-- Экран перерыва -->
+    <div id="break-screen" class="screen">
+        <div class="break-content">
+            <div class="break-icon">☕</div>
+            <h1>ПЕРЕРЫВ / BREAK</h1>
+            <h2>10 минут / 10 minutes</h2>
+            <p class="break-sub">Отдыхайте! Скоро продолжение...</p>
+            <p class="break-sub">Relax! The quiz continues soon...</p>
+            <div class="break-timer" id="break-timer">10:00</div>
+        </div>
+    </div>
+
+    <!-- Экран вопроса -->
+    <div id="question-screen" class="screen">
+        <!-- Шапка -->
+        <div class="q-header">
+            <div class="q-header-left">
+                <span id="q-round-name"></span>
+                <span id="q-round-name-en" class="q-header-en"></span>
+            </div>
+            <div class="q-header-right" id="q-number"></div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="q-body">
+            <!-- Левая колонка (RU) -->
+            <div class="q-col q-col-left">
+                <div class="q-lang-badge ru">RU</div>
+                <div class="q-label">ВОПРОС:</div>
+                <div class="q-text" id="q-text-ru"></div>
+
+                <div class="q-hint" id="hint-ru">
+                    <div class="q-hint-label">💡 ПОДСКАЗКА:</div>
+                    <div class="q-hint-text" id="hint-text-ru"></div>
+                </div>
+
+                <div class="q-options" id="options-ru"></div>
+            </div>
+
+            <!-- Центр (картинка + таймер) -->
+            <div class="q-col q-col-center">
+                <div class="q-image-frame">
+                    <div class="q-image" id="q-image"></div>
+                </div>
+                <div class="q-image-caption" id="q-image-caption"></div>
+
+                <!-- ТАЙМЕР ПОД КАРТИНКОЙ -->
+                <div class="q-timer-section">
+                    <div class="q-timer">
+                        <div class="q-timer-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="timer-bg" cx="50" cy="50" r="45"/>
+                                <circle class="timer-progress" id="timer-progress" cx="50" cy="50" r="45"/>
+                            </svg>
+                            <div class="q-timer-text" id="timer-text">60</div>
+                        </div>
+                    </div>
+                    <div class="q-timer-info">
+                        <span><span id="footer-q-num"></span> <span id="footer-q-num-en" class="q-timer-en"></span></span>
+                        <span><span id="footer-round"></span> <span id="footer-round-en" class="q-timer-en"></span></span>
+                    </div>
+                    <div class="q-timer-hint">
+                        <span id="hint-countdown"></span>
+                        <span id="hint-countdown-en" class="q-timer-en"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка (EN) -->
+            <div class="q-col q-col-right">
+                <div class="q-lang-badge en">EN</div>
+                <div class="q-label">QUESTION:</div>
+                <div class="q-text" id="q-text-en"></div>
+
+                <div class="q-hint" id="hint-en">
+                    <div class="q-hint-label">💡 HINT:</div>
+                    <div class="q-hint-text" id="hint-text-en"></div>
+                </div>
+
+                <div class="q-options" id="options-en"></div>
+            </div>
+        </div>
+
+        <!-- Таймер и инфо перенесены в центр под картинкой -->
+    </div>
+
+    <!-- Экран ответов -->
+    <div id="answers-screen" class="screen">
+        <div class="answers-container">
+            <div class="answers-header">
+                <h1 id="answers-title"></h1>
+            </div>
+            <div class="answers-table-wrapper">
+                <table class="answers-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Вопрос / Question</th>
+                            <th>Ответ / Answer</th>
+                            <th>Примечание / Note</th>
+                        </tr>
+                    </thead>
+                    <tbody id="answers-body"></tbody>
+                </table>
+            </div>
+            <div class="start-instructions">
+                <p>Нажмите <kbd>→</kbd> для продолжения / Press <kbd>→</kbd> to continue</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Финальный экран -->
+    <div id="final-screen" class="screen">
+        <div class="final-content">
+            <h1>ИТОГИ / RESULTS</h1>
+            <div class="divider"></div>
+            <div class="final-places">
+                <div class="place gold">
+                    <span class="place-medal">🥇</span>
+                    <span class="place-label">1 МЕСТО / 1ST PLACE</span>
+                    <span class="place-team">_______________</span>
+                </div>
+                <div class="place silver">
+                    <span class="place-medal">🥈</span>
+                    <span class="place-label">2 МЕСТО / 2ND PLACE</span>
+                    <span class="place-team">_______________</span>
+                </div>
+                <div class="place bronze">
+                    <span class="place-medal">🥉</span>
+                    <span class="place-label">3 МЕСТО / 3RD PLACE</span>
+                    <span class="place-team">_______________</span>
+                </div>
+            </div>
+            <p class="final-congrats">Поздравляем! / Congratulations!</p>
+        </div>
+    </div>
+
+    <!-- Время вышло (Overlay) -->
+    <div class="time-up-overlay" id="time-up-overlay">
+        <div>
+            <div class="time-up-text">ВРЕМЯ ВЫШЛО!</div>
+            <div class="time-up-sub">TIME'S UP!</div>
+        </div>
+    </div>
+
+    <!-- Навигация (кнопки) -->
+    <div class="nav-controls" id="nav-controls">
+        <button class="nav-btn" id="btn-prev" title="← Назад">◀</button>
+        <button class="nav-btn" id="btn-next" title="→ Вперёд">▶</button>
+        <button class="nav-btn" id="btn-fullscreen" title="⛶ Полный экран">⛶</button>
+    </div>
+
+    <!-- Подсказка по навигации -->
+    <div class="nav-hint" id="nav-hint">
+        <span>← → Пробел | F Полный экран | ESC Выход</span>
+    </div>
+
+    <script src="js/quiz.js?v=10"></script>
+    <script src="js/app.js?v=3"></script>
+</body>
+</html>
