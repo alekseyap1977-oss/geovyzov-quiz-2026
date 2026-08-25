@@ -1,0 +1,10 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="300" fill="#e8f4f8"/>
+        <path d="M0,150 Q100,100 200,130 T400,120" fill="none" stroke="#4682B4" stroke-width="8"/>
+        <path d="M0,160 Q100,110 200,140 T400,130" fill="none" stroke="#4682B4" stroke-width="4" opacity="0.5"/>
+        <text x="200" y="40" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">🇨🇳 ЯНЦЗЫ / YANGTZE</text>
+        <text x="200" y="70" text-anchor="middle" font-size="14" fill="#666">Самая длинная река Азии</text>
+        <text x="200" y="90" text-anchor="middle" font-size="14" fill="#666">Longest river in Asia</text>
+        <text x="200" y="220" text-anchor="middle" font-size="24" fill="#4682B4" font-weight="bold">~6 300 км</text>
+        <text x="200" y="250" text-anchor="middle" font-size="12" fill="#666">Протекает через Китай / Flows through China</text>
+    </svg>
