@@ -88,16 +88,16 @@ html, body {
     color: var(--gold);
     letter-spacing: 1px;
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 .ngk-site {
-    font-size: 18px;
-    color: var(--white);
+    font-size: 20px;
+    color: var(--blue);
     font-weight: 700;
     margin-bottom: 25px;
 }
 .ngk-motto {
-    font-size: 26px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.85);
     font-style: italic;
     line-height: 1.3;

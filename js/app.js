@@ -6,7 +6,7 @@ class GeoQuiz {
         this.currentSlide = 0;
         this.slides = [];
         this.timer = null;
-        this.timerValue = 60;
+        this.timerValue = 30;
         this.hintShown = false;
         this.hintTimer = null;
         this.isAutoPlay = false;
@@ -337,7 +337,7 @@ class GeoQuiz {
         this.startTimer();
 
         // Подсказка до подсказки
-        document.getElementById('hint-countdown').textContent = 'Подсказка через: 30 сек';
+        document.getElementById('hint-countdown').textContent = 'Подсказка через: 20 сек';
 
         // Скрываем overlay
         this.hideTimeUpOverlay();
@@ -345,7 +345,7 @@ class GeoQuiz {
 
     // ===== ТАЙМЕР =====
     startTimer() {
-        this.timerValue = 60;
+        this.timerValue = 30;
         this.hintShown = false;
         this.updateTimerDisplay();
 
@@ -358,8 +358,8 @@ class GeoQuiz {
                 this.playTick();
             }
 
-            // Подсказка через 30 сек
-            if (this.timerValue === 30 && !this.hintShown) {
+            // Подсказка через 20 сек
+            if (this.timerValue === 10 && !this.hintShown) {
                 this.showHint();
             }
 
@@ -392,23 +392,23 @@ class GeoQuiz {
         text.textContent = this.timerValue;
 
         // Круговой прогресс ( circumference = 2 * π * r = 283 )
-        const offset = 283 - (this.timerValue / 60) * 283;
+        const offset = 283 - (this.timerValue / 30) * 283;
         progress.style.strokeDashoffset = offset;
 
         // Цвет
         progress.classList.remove('warning', 'danger');
         text.classList.remove('danger');
-        if (this.timerValue <= 10) {
+        if (this.timerValue <= 5) {
             progress.classList.add('danger');
             text.classList.add('danger');
-        } else if (this.timerValue <= 30) {
+        } else if (this.timerValue <= 10) {
             progress.classList.add('warning');
         }
 
         // Обратный отсчёт до подсказки
-        if (this.timerValue > 30) {
-            document.getElementById('hint-countdown').textContent = `Подсказка через: ${this.timerValue - 30} сек`;
-            document.getElementById('hint-countdown-en').textContent = `/ Hint in: ${this.timerValue - 30} sec`;
+        if (this.timerValue > 10) {
+            document.getElementById('hint-countdown').textContent = `Подсказка через: ${this.timerValue - 10} сек`;
+            document.getElementById('hint-countdown-en').textContent = `/ Hint in: ${this.timerValue - 10} sec`;
         } else if (!this.hintShown) {
             document.getElementById('hint-countdown').textContent = '💡 Подсказка!';
             document.getElementById('hint-countdown-en').textContent = '/ Hint!';

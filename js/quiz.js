@@ -2,7 +2,7 @@
 const QUIZ_DATA = {
     rounds: [
         { id: "R1", nameRu: "Раунд 1: Нефть и газ", nameEn: "Round 1: Oil & Gas", color: "#27467f" },
-        { id: "R2", nameRu: "Раунд 2: Рудная геология", nameEn: "Round 2: Hard-rock Geology", color: "#8b0000" },
+        { id: "R2", nameRu: "Раунд 2: Рудная геология", nameEn: "Round 2: Ore Geology", color: "#8b0000" },
         { id: "R3", nameRu: "Раунд 3: Микс", nameEn: "Round 3: Mix", color: "#006400" },
         { id: "R4", nameRu: "Раунд 4: Мой мир", nameEn: "Round 4: My World", color: "#1565C0" },
         { id: "R5", nameRu: "Раунд 5: Вместе", nameEn: "Round 5: Together", color: "#6A1B9A" },
@@ -125,11 +125,11 @@ const QUIZ_DATA = {
         // ===== РАУНД 2: РУДНАЯ ГЕОЛОГИЯ =====
         {
             id: "Q11", round: "R2",
-            qRu: "Какой минерал имеет твёрдость 10 по шкале Мооса?",
-            qEn: "Which mineral has hardness 10 on the Mohs scale?",
+            qRu: "Какой минерал имеет твёрдость 8 по шкале Мооса?",
+            qEn: "Which mineral has hardness 8 on the Mohs scale?",
             optsRu: [{l:"A",t:"Корунд"},{l:"B",t:"Алмаз"},{l:"C",t:"Топаз"},{l:"D",t:"Кварц"}],
             optsEn: [{l:"A",t:"Corundum"},{l:"B",t:"Diamond"},{l:"C",t:"Topaz"},{l:"D",t:"Quartz"}],
-            answer: "B",
+            answer: "C",
             hintRu: "Шкала Мооса: тальк(1) → алмаз(10)",
             hintEn: "Mohs scale: talc(1) → diamond(10)",
             image: "round2/Q11"
@@ -316,11 +316,11 @@ const QUIZ_DATA = {
             id: "Q28", round: "R3",
             qRu: "ГеоВызов 2025 прошёл:",
             qEn: "GeoChallenge 2025 was held in:",
-            optsRu: [{l:"A",t:"В Москве"},{l:"B",t:"В Уфе (Башкортостан)"},{l:"C",t:"В Новосибирске"},{l:"D",t:"В Санкт-Петербурге"}],
-            optsEn: [{l:"A",t:"Moscow"},{l:"B",t:"Ufa (Bashkortostan)"},{l:"C",t:"Novosibirsk"},{l:"D",t:"St. Petersburg"}],
+            optsRu: [{l:"A",t:"В Москве"},{l:"B",t:"В Уфе"},{l:"C",t:"В Новосибирске"},{l:"D",t:"В Санкт-Петербурге"}],
+            optsEn: [{l:"A",t:"Moscow"},{l:"B",t:"Ufa"},{l:"C",t:"Novosibirsk"},{l:"D",t:"St. Petersburg"}],
             answer: "B",
-            hintRu: "III чемпионат прошёл в Республике Башкортостан",
-            hintEn: "3rd championship was held in the Republic of Bashkortostan",
+            hintRu: "III чемпионат прошёл в одной из Республик России...",
+            hintEn: "3rd championship was held in one of the Republic of Russia...",
             image: "round3/Q28"
         },
 
@@ -373,17 +373,17 @@ const QUIZ_DATA = {
             id: "G5", round: "R4",
             qRu: "Какое озеро является самым глубоким в Беларуси?",
             qEn: "Which lake is the deepest in Belarus?",
-            optsRu: [{l:"A",t:"Нарочь"},{l:"B",t:"Дрисвяты"},{l:"C",t:"Свитьязь"},{l:"D",t:"Рыбное"}],
-            optsEn: [{l:"A",t:"Naroch"},{l:"B",t:"Drisvyaty"},{l:"C",t:"Svytiaz"},{l:"D",t:"Rybnoe"}],
-            answer: "C",
+            optsRu: [{l:"A",t:"Нарочь"},{l:"B",t:"Дрисвяты"},{l:"C",t:"Свитьязь"},{l:"D",t:"Долгое"}],
+            optsEn: [{l:"A",t:"Naroch"},{l:"B",t:"Drisvyaty"},{l:"C",t:"Svytiaz"},{l:"D",t:"Dolgoe"}],
+            answer: "D",
             hintRu: "Глубина ~54 м, «белорусское море»",
             hintEn: "Depth ~54 m, «Belarusian sea»",
             image: "round4/G5"
         },
         {
             id: "G6", round: "R4",
-            qRu: "Какие водопады расположены на границе Зимбабве и Замбии?",
-            qEn: "Which waterfalls are located on the border of Zimbabwe and Zambia?",
+            qRu: "Какие водопады расположены на границе Зимбабве?",
+            qEn: "Which waterfalls are located on the border of Zimbabwe?",
             optsRu: [{l:"A",t:"Виктория"},{l:"B",t:"Игуасу"},{l:"C",t:"Ньяга"},{l:"D",t:"Анхель"}],
             optsEn: [{l:"A",t:"Victoria"},{l:"B",t:"Iguazu"},{l:"C",t:"Niagara"},{l:"D",t:"Angel"}],
             answer: "A",
@@ -404,8 +404,8 @@ const QUIZ_DATA = {
         },
         {
             id: "G8", round: "R4",
-            qRu: "Какая гора является самой высокой в Таджикистане (и в Центральной Азии)?",
-            qEn: "Which mountain is the highest in Tajikistan (and in Central Asia)?",
+            qRu: "Какая гора является самой высокой в Таджикистане?",
+            qEn: "Which mountain is the highest in Tajikistan?",
             optsRu: [{l:"A",t:"Хан-Тенгри"},{l:"B",t:"Пик Исмоили Самани"},{l:"C",t:"Эльбрус"},{l:"D",t:"Хребет Памир"}],
             optsEn: [{l:"A",t:"Khan Tengri"},{l:"B",t:"Ismoil Somoni Peak"},{l:"C",t:"Elbrus"},{l:"D",t:"Pamir Range"}],
             answer: "B",
@@ -435,6 +435,50 @@ const QUIZ_DATA = {
             hintEn: "Guinea is one of the world's largest producers",
             image: "round4/G10"
         },
+        {
+            id: "G11", round: "R4",
+            qRu: "Какой город Узбекистана является объектом ЮНЕСКО и расположен на Великом шёлковом пути?",
+            qEn: "Which Uzbekistan city is a UNESCO site on the Silk Road?",
+            optsRu: [{l:"A",t:"Бухара"},{l:"B",t:"Самарканд"},{l:"C",t:"Ташкент"},{l:"D",t:"Нукус"}],
+            optsEn: [{l:"A",t:"Bukhara"},{l:"B",t:"Samarkand"},{l:"C",t:"Tashkent"},{l:"D",t:"Nukus"}],
+            answer: "B",
+            hintRu: "Один из старейших городов мира (~2750 лет), Регистан",
+            hintEn: "One of the oldest cities in the world (~2750 years), Registan",
+            image: "round4/G11"
+        },
+        {
+            id: "G12", round: "R4",
+            qRu: "Какая священная гора расположена в Палестине и является одним из важнейших религиозных мест?",
+            qEn: "Which sacred mountain is located in Palestine and is one of the most important religious sites?",
+            optsRu: [{l:"A",t:"Синай"},{l:"B",t:"Оливковая гора"},{l:"C",t:"Кармель"},{l:"D",t:"Ермон"}],
+            optsEn: [{l:"A",t:"Sinai"},{l:"B",t:"Mount of Olives"},{l:"C",t:"Mount Carmel"},{l:"D",t:"Mount Hermon"}],
+            answer: "B",
+            hintRu: "Гора Елеонская",
+            hintEn: "Eleon Mount",
+            image: "round4/G12"
+        },
+        {
+            id: "G13", round: "R4",
+            qRu: "Какая птица изображена на гербе Мали?",
+            qEn: "Which bird is depicted on the coat of arms of Mali?",
+            optsRu: [{l:"A",t:"Воробей"},{l:"B",t:"Орел"},{l:"C",t:"Голубь"},{l:"D",t:"Фламинго"}],
+            optsEn: [{l:"A",t:"Sparrow"},{l:"B",t:"Eagle"},{l:"C",t:"Dove"},{l:"D",t:"Flamingo"}],
+            answer: "A",
+            hintRu: "Птица из малийского фольклора, символизирует мир",
+            hintEn: "Bird from Malian folklore, symbolizes peace",
+            image: "round4/G13"
+        },
+        {
+            id: "G14", round: "R4",
+            qRu: "Какое озеро является самым глубоким в России и в мире?",
+            qEn: "Which lake is the deepest in Russia and in the world?",
+            optsRu: [{l:"A",t:"Байкал"},{l:"B",t:"Ладожское"},{l:"C",t:"Онежское"},{l:"D",t:"Чудское"}],
+            optsEn: [{l:"A",t:"Baikal"},{l:"B",t:"Ladoga"},{l:"C",t:"Onega"},{l:"D",t:"Peipus"}],
+            answer: "A",
+            hintRu: "Глубина 1642 м, содержит ~20% мировых запасов пресной воды",
+            hintEn: "Depth 1642 m, contains ~20% of world's fresh water reserves",
+            image: "round4/G14"
+        },
 
         // ===== РАУНД 5: ВМЕСТЕ (Традиции, кухня, дружба) =====
         {
@@ -461,8 +505,8 @@ const QUIZ_DATA = {
         },
         {
             id: "F3", round: "R5",
-            qRu: "Что такое «мансаф» — традиционное блюдо, которое готовят в Палестине и Иордании?",
-            qEn: "What is «mansaf» — a traditional dish prepared in Palestine and Jordan?",
+            qRu: "Что такое «мансаф» — традиционное блюдо, которое готовят в Палестине?",
+            qEn: "What is «mansaf» — a traditional dish prepared in Palestine?",
             optsRu: [{l:"A",t:"Суп"},{l:"B",t:"Блюдо из баранины в йогурте"},{l:"C",t:"Салат"},{l:"D",t:"Десерт"}],
             optsEn: [{l:"A",t:"Soup"},{l:"B",t:"Lamb in yogurt"},{l:"C",t:"Salad"},{l:"D",t:"Dessert"}],
             answer: "B",
@@ -547,28 +591,73 @@ const QUIZ_DATA = {
             hintEn: "UNESCO site, home to European bison",
             image: "round5/F10"
         },
+        {
+            id: "F11", round: "R5",
+            qRu: "Какое блюдо является национальным символом Узбекистана?",
+            qEn: "Which dish is the national symbol of Uzbekistan?",
+            optsRu: [{l:"A",t:"Бешбармак"},{l:"B",t:"Шашлык"},{l:"C",t:"Плов"},{l:"D",t:"Хинкали"}],
+            optsEn: [{l:"A",t:"Beshbarmak"},{l:"B",t:"Shashlik"},{l:"C",t:"Plov"},{l:"D",t:"Khinkali"}],
+            answer: "C",
+            hintRu: "Блюдо из риса с мясом, морковью и специями",
+            hintEn: "Rice dish with meat, carrots and spices",
+            image: "round5/F11"
+        },
+        {
+            
+            id: "F12", round: "R5",
+            qRu: "Какой океан омывает побережье Мозамбика?",
+            qEn: "Which ocean washes the coast of Mozambique?",
+            optsRu: [{l:"A",t:"Атлантический"},{l:"B",t:"Тихий"},{l:"C",t:"Индийский"},{l:"D",t:"Северный Ледовитый"}],
+            optsEn: [{l:"A",t:"Atlantic"},{l:"B",t:"Pacific"},{l:"C",t:"Indian"},{l:"D",t:"Arctic"}],
+            answer: "C",
+            hintRu: "Мозамбик расположен на восточном побережье Африки",
+            hintEn: "Mozambique is located on the eastern coast of Africa",
+            image: "round5/F12"
+        },
+        {
+            id: "F13", round: "R5",
+            qRu: "Какой традиционный таджикский напиток подают с восточными сладостями типа кандалот?",
+            qEn: "Which traditional Tajik drink is served hot with eastern sweets of the kind known as kandalot?",
+            optsRu: [{l:"A",t:"Кофе"},{l:"B",t:"Зелёный чай"},{l:"C",t:"Кумыс"},{l:"D",t:"Кофе с молоком"}],
+            optsEn: [{l:"A",t:"Coffee"},{l:"B",t:"Green tea"},{l:"C",t:"Kumis"},{l:"D",t:"Coffee with milk"}],
+            answer: "B",
+            hintRu: "Традиция чаепития в Таджикистане — важная часть культуры",
+            hintEn: "Tea drinking tradition in Tajikistan is an important part of culture",
+            image: "round5/F13"
+        },
+        {
+            id: "F14", round: "R5",
+            qRu: "Какой исторический квартал в Алжире является объектом ЮНЕСКО?",
+            qEn: "Which historic quarter in Algiers is a UNESCO World Heritage Site?",
+            optsRu: [{l:"A",t:"Медина"},{l:"B",t:"Касба"},{l:"C",t:"Сук"},{l:"D",t:"Пальмира"}],
+            optsEn: [{l:"A",t:"Medina"},{l:"B",t:"Casbah"},{l:"C",t:"Souk"},{l:"D",t:"Palmyra"}],
+            answer: "B",
+            hintRu: "Крепость XVI века, построенная османами",
+            hintEn: "16th-century fortress built by the Ottomans",
+            image: "round5/F14"
+        },
 
         // ===== ТАЙ-БРЕЙК (Общие темы) =====
         {
             id: "TB1", round: "TB",
             qRu: "Сколько стран-участниц в данном квизе?",
             qEn: "How many participating countries are in this quiz?",
-            optsRu: [{l:"A",t:"10"},{l:"B",t:"12"},{l:"C",t:"13"},{l:"D",t:"15"}],
-            optsEn: [{l:"A",t:"10"},{l:"B",t:"12"},{l:"C",t:"13"},{l:"D",t:"15"}],
+            optsRu: [{l:"A",t:"16"},{l:"B",t:"10"},{l:"C",t:"12"},{l:"D",t:"14"}],
+            optsEn: [{l:"A",t:"16"},{l:"B",t:"10"},{l:"C",t:"12"},{l:"D",t:"14"}],
             answer: "C",
-            hintRu: "Россия, Мозамбик, Иран, Ирак, Палестина, Китай, Беларусь, Таджикистан, Зимбабве, Мали, Гвинея, Алжир, Мексика",
-            hintEn: "Russia, Mozambique, Iran, Iraq, Palestine, China, Belarus, Tajikistan, Zimbabwe, Mali, Guinea, Algeria, Mexico",
+            hintRu: "Россия, Мозамбик, Узбекистан, Иран, Ирак, Палестина, Китай, Беларусь, Таджикистан, Зимбабве, Мали, Гвинея, Алжир, Мексика",
+            hintEn: "Russia, Mozambique, Uzbekistan, Iran, Iraq, Palestine, China, Belarus, Tajikistan, Zimbabwe, Mali, Guinea, Algeria, Mexico",
             image: "tiebreak/TB1"
         },
         {
             id: "TB2", round: "TB",
             qRu: "Какой континент представлен наибольшим числом стран в данном квизе?",
             qEn: "Which continent is represented by the most countries in this quiz?",
-            optsRu: [{l:"A",t:"Азия"},{l:"B",t:"Африка"},{l:"C",t:"Европа"},{l:"D",t:"Америка"}],
-            optsEn: [{l:"A",t:"Asia"},{l:"B",t:"Africa"},{l:"C",t:"Europe"},{l:"D",t:"Americas"}],
+            optsRu: [{l:"A",t:"Евразия"},{l:"B",t:"Африка"},{l:"C",t:"Северная Америка"},{l:"D",t:"Южная Америка"}],
+            optsEn: [{l:"A",t:"Eurasia"},{l:"B",t:"Africa"},{l:"C",t:"North America"},{l:"D",t:"South America"}],
             answer: "B",
-            hintRu: "Африка: Мозамбик, Зимбабве, Мали, Гвинея, Алжир (5 стран)",
-            hintEn: "Africa: Mozambique, Zimbabwe, Mali, Guinea, Algeria (5 countries)",
+            hintRu: "Мозамбик, Зимбабве, Мали, Гвинея, Алжир (5 стран)",
+            hintEn: "Mozambique, Zimbabwe, Mali, Guinea, Algeria (5 countries)",
             image: "tiebreak/TB2"
         },
         {
